@@ -1,23 +1,19 @@
-#include <stdint.h>
+#include <stdint.h> //defined fixed-width integer types -- this is C
 
-#include <bitset>
-#include <cmath>
-#include <cstdint>
-#include <fstream>
-#include <iomanip>
-#include <iostream>
-#include <memory>
+#include <bitset> //fixed-sized sequences of bits -- java.util.BitSet in Java
+#include <cmath> //mathematical functions -- java.lang.Math in Java
+#include <cstdint> //C++ conventions -- this is C++
+#include <fstream> //file I/O -- java.io.FileReader and java.io.FileWriter in Java
+#include <iomanip> //provides functions to format input and output -- java.util.Fomatter or String.format() in Java
+#include <iostream> //System.out.println in Java
+#include <memory> //smart pointers -- manage memory automatically
 #include <string>
-#include <unordered_map>
-#include <vector>
+#include <unordered_map> //HashMap
+#include <vector> //ArrayList
 
 using namespace std;
 
-/*
- * *** STUDENTS WILL NEED TO CHANGE INPUT_CSV_FILE PATH BELOW TO POINT TO THE rpn-input.csv FILE ***
- * *** ON THEIR LAPTOP/COMPUTER ***
- */
-#define INPUT_CSV_FILE "/class-cplusplus/rpn-bitwise-calculator/rpn-input.csv"
+#define INPUT_CSV_FILE "/Users/innominate-majesty/Documents/GitHub/RPN_Calculator_Bitwise/rpn-input.csv"
 
 // test controls
 #define MIN_VALUE 0
@@ -231,3 +227,5 @@ int main() {
     }
     return 0;
 }
+//
+//

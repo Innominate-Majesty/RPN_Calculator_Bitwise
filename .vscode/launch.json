@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/innominate-majesty/Documents/GitHub/RPN_Calculator_Bitwise",
+      "program": "/Users/innominate-majesty/Documents/GitHub/RPN_Calculator_Bitwise/build/Debug/outDebug"
+    }
+  ]
+}

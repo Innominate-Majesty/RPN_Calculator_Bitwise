@@ -11,6 +11,9 @@
 #include <unordered_map> //HashMap
 #include <vector> //ArrayList
 
+#include <stack>
+#include <memory>
+
 using namespace std;
 
 #define INPUT_CSV_FILE "/Users/innominate-majesty/Documents/GitHub/RPN_Calculator_Bitwise/rpn-input.csv"
@@ -18,12 +21,12 @@ using namespace std;
 // test controls
 #define MIN_VALUE 0
 #define MAX_VALUE 100
-uint8_t const table_width[] = {14, 18, 14, 18, 14, 18};
+uint8_t const table_width[] = {14, 18, 14, 18, 14, 18}; //unsigned 8-bit integer (no negative values) -- similar to byte
 
 // test harness structs and params
-#define VALUE_NULLPTR -999
+#define VALUE_NULLPTR -999 //similar to null in Java
 
-enum command : uint16_t {
+enum command : uint16_t { //creates a list of commands with specific values -- similar to Java's enum
     cmd_enter = 0,
     cmd_clear,
     cmd_pop,
@@ -34,9 +37,13 @@ enum command : uint16_t {
     cmd_and,
     cmd_add,
 };
+
+//holds the names of the commands in a string format -- List<string> in Java
 vector<string> command_name = {"cmd_enter",       "cmd_clear", "cmd_pop", "cmd_top", "cmd_left_shift",
                                "cmd_right_shift", "cmd_or",    "cmd_and", "cmd_add"};
 uint8_t const width = 16U;
+
+stack<uint16_t> rpn_stack; //stack to hold 16-bit values
 
 /*
  * *** STUDENTS SHOULD WRITE CODE FOR THIS FUNCTION ***
@@ -45,9 +52,28 @@ uint8_t const width = 16U;
  */
 shared_ptr<uint16_t> rpn_calc(command const cmd, uint16_t const value = 0) {
     // this is example code which returns a (smart shared) pointer to 16-bit value
-    uint16_t val = 0b1001100100000011;
-    shared_ptr<uint16_t> result = make_shared<uint16_t>(val);
-    return result;
+    // uint16_t val = 0b1001100100000011;
+    // shared_ptr<uint16_t> result = make_shared<uint16_t>(val);
+    // return result;
+
+    //Handle commands
+    switch (cmd) {
+        case cmd_enter: //Push a value onto the stack
+            rpn_stack.push(value);
+            return make_shared<uint16_t>(rpn_stack.pop()); //popping all the elements
+        
+        case cmd_clear: //clear the stack
+            while (!rpn_stack.empty()) rpn_stack.pop();
+            return nullptr; //return null since the stack is empty
+        
+        case cmd_pop: //pop the top value off the stack
+
+
+
+
+    }
+
+
 }
 
 /*

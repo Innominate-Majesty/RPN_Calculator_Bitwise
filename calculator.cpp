@@ -39,8 +39,12 @@ enum command : uint16_t { //creates a list of commands with specific values -- s
 };
 
 //holds the names of the commands in a string format -- List<string> in Java
-vector<string> command_name = {string("cmd_enter"), string("cmd_clear"), string("cmd_pop"), string("cmd_top"), 
-                               string("cmd_left_shift"), string("cmd_right_shift"), string("cmd_or"), string("cmd_and"), string("cmd_add")};
+vector<string> command_name = {"cmd_enter",       "cmd_clear", "cmd_pop", "cmd_top", "cmd_left_shift",
+                               "cmd_right_shift", "cmd_or",    "cmd_and", "cmd_add"};
+
+
+
+
 uint8_t const width = 16U;
 
 stack<uint16_t> rpn_stack; //stack to hold 16-bit values
@@ -83,6 +87,7 @@ shared_ptr<uint16_t> rpn_calc(command const cmd, uint16_t const value = 0) {
     }
 
 }
+
 
 /*
  * *** STUDENTS SHOULD NOT NEED TO CHANGE THE CODE BELOW. IT IS A CUSTOM TEST HARNESS. ***
@@ -263,7 +268,3 @@ int main() {
 }
 //
 //
-//
-//
-//
-//...test

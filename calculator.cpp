@@ -32,6 +32,10 @@ enum command : uint16_t { //creates a list of commands with specific values -- s
     cmd_pop,
     cmd_top,
     cmd_left_shift,
+
+
+
+
     cmd_right_shift,
     cmd_or,
     cmd_and,
@@ -39,9 +43,14 @@ enum command : uint16_t { //creates a list of commands with specific values -- s
 };
 
 //holds the names of the commands in a string format -- List<string> in Java
-vector<string> command_name = {"cmd_enter",       "cmd_clear", "cmd_pop", "cmd_top", "cmd_left_shift",
-                               "cmd_right_shift", "cmd_or",    "cmd_and", "cmd_add"};
+// vector<string> command_name = {"cmd_enter",       "cmd_clear", "cmd_pop", "cmd_top", "cmd_left_shift",
+//                                "cmd_right_shift", "cmd_or",    "cmd_and", "cmd_add"};
 
+vector<string> command_name = {
+    "cmd_enter", "cmd_clear", "cmd_pop", "cmd_top", 
+    "cmd_left_shift", "cmd_right_shift", "cmd_or", 
+    "cmd_and", "cmd_add"
+};
 
 
 

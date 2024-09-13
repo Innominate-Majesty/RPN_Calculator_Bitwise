@@ -39,8 +39,8 @@ enum command : uint16_t { //creates a list of commands with specific values -- s
 };
 
 //holds the names of the commands in a string format -- List<string> in Java
-vector<string> command_name = {"cmd_enter",       "cmd_clear", "cmd_pop", "cmd_top", "cmd_left_shift",
-                               "cmd_right_shift", "cmd_or",    "cmd_and", "cmd_add"};
+vector<string> command_name = {string("cmd_enter"), string("cmd_clear"), string("cmd_pop"), string("cmd_top"), 
+                               string("cmd_left_shift"), string("cmd_right_shift"), string("cmd_or"), string("cmd_and"), string("cmd_add")};
 uint8_t const width = 16U;
 
 stack<uint16_t> rpn_stack; //stack to hold 16-bit values
@@ -60,19 +60,27 @@ shared_ptr<uint16_t> rpn_calc(command const cmd, uint16_t const value = 0) {
     switch (cmd) {
         case cmd_enter: //Push a value onto the stack
             rpn_stack.push(value);
-            return make_shared<uint16_t>(rpn_stack.pop()); //popping all the elements
+            return make_shared<uint16_t>(rpn_stack.top()); //popping all the elements
         
         case cmd_clear: //clear the stack
             while (!rpn_stack.empty()) rpn_stack.pop();
             return nullptr; //return null since the stack is empty
         
         case cmd_pop: //pop the top value off the stack
+            if (rpn_stack.empty()) return nullptr; //return null if stack is empty
+            rpn_stack.pop(); //pop the top element off
+            if (!rpn_stack.empty()) //if it's not empty
+                return make_shared<uint16_t>(rpn_stack.top()); // Return the new top of the stack
+            return nullptr; //the stack will be empty after popping
 
+        case cmd_top: //return the top value without modifying the rest of the stack
+            if (rpn_stack.empty()) return nullptr;
+            return make_shared<uint16_t>(rpn_stack.top()); // Return the top of the stack
 
-
+        default: //if the command isn't recognized
+            return nullptr;
 
     }
-
 
 }
 
@@ -255,3 +263,7 @@ int main() {
 }
 //
 //
+//
+//
+//
+//...test
